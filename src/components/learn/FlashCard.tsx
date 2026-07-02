@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { motion, PanInfo, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, PanInfo } from 'framer-motion';
 import { VocabWord } from '@/types';
 import { useAudio } from '@/hooks/useAudio';
 
@@ -15,26 +15,30 @@ interface Props {
 export default function FlashCard({ word, onKnow, onAgain, total, current }: Props) {
   const [flipped, setFlipped] = useState(false);
   const { speak, speaking } = useAudio();
+
+  // All hooks at top level — never inside JSX
   const x = useMotionValue(0);
-  const rotate = useTransform(x, [-200, 200], [-20, 20]);
-  const opacity = useTransform(x, [-200, -100, 0, 100, 200], [0.5, 1, 1, 1, 0.5]);
+  const rotate = useTransform(x, [-200, 200], [-18, 18]);
+  const cardOpacity = useTransform(x, [-200, -80, 0, 80, 200], [0.5, 1, 1, 1, 0.5]);
+  const againOpacity = useTransform(x, [-120, 0], [1, 0]);
+  const knowOpacity = useTransform(x, [0, 120], [0, 1]);
 
-  // Auto-speak Danish on mount
   useEffect(() => {
-    const t = setTimeout(() => speak(word.danish), 400);
+    setFlipped(false);
+    const t = setTimeout(() => speak(word.danish), 350);
     return () => clearTimeout(t);
-  }, [word.danish]);
+  }, [word.id]);
 
-  function handleDragEnd(_: PointerEvent, info: PanInfo) {
-    if (info.offset.x > 100) { onKnow(); setFlipped(false); }
-    else if (info.offset.x < -100) { onAgain(); setFlipped(false); }
+  function handleDragEnd(_: unknown, info: PanInfo) {
+    if (info.offset.x > 90) { onKnow(); }
+    else if (info.offset.x < -90) { onAgain(); }
   }
 
   return (
     <div className="flex flex-col items-center px-4 w-full">
-      {/* Progress */}
-      <div className="w-full mb-4">
-        <div className="flex justify-between text-xs text-slate-500 mb-1">
+      {/* Progress bar */}
+      <div className="w-full mb-5">
+        <div className="flex justify-between text-xs text-slate-400 mb-1.5">
           <span>{current} / {total}</span>
           <span>{Math.round((current / total) * 100)}%</span>
         </div>
@@ -48,31 +52,29 @@ export default function FlashCard({ word, onKnow, onAgain, total, current }: Pro
         </div>
       </div>
 
-      {/* Card */}
+      {/* Swipe card */}
       <motion.div
-        className="w-full relative cursor-grab active:cursor-grabbing"
-        style={{ height: 300, x, rotate, opacity }}
+        className="relative w-full cursor-grab active:cursor-grabbing"
+        style={{ height: 280, x, rotate, opacity: cardOpacity }}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.15}
         onDragEnd={handleDragEnd}
-        onClick={() => { setFlipped(f => !f); if (!flipped) speak(word.danish); }}
       >
         {/* Front — Danish */}
         <motion.div
           className="absolute inset-0 rounded-3xl bg-gradient-to-br from-danish-red to-hot-pink text-white flex flex-col items-center justify-center p-6 shadow-xl select-none"
-          style={{
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            rotateY: flipped ? 180 : 0,
-            zIndex: flipped ? 0 : 1,
-          }}
           animate={{ rotateY: flipped ? 180 : 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.45 }}
+          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          onClick={() => { setFlipped(true); speak(word.danish); }}
         >
           <div className="text-5xl mb-3">{word.emoji ?? '🇩🇰'}</div>
           <div className="text-4xl font-black text-center leading-tight">{word.danish}</div>
-          {word.phonetic && <div className="text-white/60 text-sm mt-2 italic">[{word.phonetic}]</div>}
-          <div className="text-white/50 text-xs mt-6">Tap to reveal · Swipe to answer</div>
+          {word.phonetic && (
+            <div className="text-white/60 text-sm mt-2 italic">[{word.phonetic}]</div>
+          )}
+          <div className="text-white/50 text-xs mt-5">Tap to reveal · Swipe to answer</div>
           <button
             onClick={e => { e.stopPropagation(); speak(word.danish); }}
             className={`mt-3 w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl min-touch ${speaking ? 'animate-pulse' : ''}`}
@@ -83,42 +85,37 @@ export default function FlashCard({ word, onKnow, onAgain, total, current }: Pro
 
         {/* Back — English */}
         <motion.div
-          className="absolute inset-0 rounded-3xl bg-white border-2 border-pink-100 flex flex-col items-center justify-center p-6 shadow-xl select-none overflow-y-auto"
-          style={{
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            rotateY: flipped ? 0 : -180,
-            zIndex: flipped ? 1 : 0,
-          }}
+          className="absolute inset-0 rounded-3xl bg-white border-2 border-pink-100 flex flex-col items-center justify-center p-5 shadow-xl select-none overflow-y-auto"
           animate={{ rotateY: flipped ? 0 : -180 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.45 }}
+          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          onClick={() => setFlipped(false)}
         >
           <div className="text-4xl mb-2">{word.emoji ?? '💬'}</div>
           <div className="text-2xl font-black text-slate-800 text-center">{word.english}</div>
-          <div className="text-slate-500 text-xs text-center mt-3 italic max-w-[220px]">{word.exampleDA}</div>
-          <div className="text-slate-400 text-xs text-center mt-1 max-w-[220px]">{word.exampleEN}</div>
+          <div className="text-slate-500 text-xs text-center mt-3 italic max-w-[210px] leading-relaxed">
+            {word.exampleDA}
+          </div>
+          <div className="text-slate-400 text-xs text-center mt-1 max-w-[210px] leading-relaxed">
+            {word.exampleEN}
+          </div>
           {word.cultural && (
-            <div className="mt-3 bg-pink-50 rounded-xl px-3 py-2 text-xs text-hot-pink-dark text-center border border-pink-100 max-w-[240px]">
+            <div className="mt-3 bg-pink-50 rounded-xl px-3 py-2 text-xs text-hot-pink-dark text-center border border-pink-100 max-w-[230px] leading-relaxed">
               💡 {word.cultural}
             </div>
           )}
+          <div className="text-slate-300 text-xs mt-3">Tap to flip back</div>
         </motion.div>
       </motion.div>
 
-      {/* Drag hints */}
-      <div className="flex justify-between w-full mt-4 px-2">
-        <motion.div
-          className="text-xs text-red-400 font-semibold flex items-center gap-1"
-          style={{ opacity: useTransform(x, [-100, 0], [1, 0]) }}
-        >
+      {/* Swipe indicators — using top-level useTransform values */}
+      <div className="flex justify-between w-full mt-3 px-1">
+        <motion.span className="text-xs text-red-400 font-semibold" style={{ opacity: againOpacity }}>
           ← Again
-        </motion.div>
-        <motion.div
-          className="text-xs text-emerald-500 font-semibold flex items-center gap-1"
-          style={{ opacity: useTransform(x, [0, 100], [0, 1]) }}
-        >
+        </motion.span>
+        <motion.span className="text-xs text-emerald-500 font-semibold" style={{ opacity: knowOpacity }}>
           Know it →
-        </motion.div>
+        </motion.span>
       </div>
 
       {/* Buttons */}

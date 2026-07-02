@@ -9,8 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'danish-red': '#C60C30',
+        'danish-red-dark': '#A00926',
+        'hot-pink': '#FF1493',
+        'hot-pink-dark': '#E91E8C',
+        'blush': '#FFF0F5',
+      },
+      fontFamily: {
+        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },

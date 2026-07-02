@@ -1,0 +1,14 @@
+import { VocabWord } from '@/types';
+
+export const shoppingWords: VocabWord[] = [
+  { id: 'a2-shop-001', danish: 'butik', english: 'shop / store', level: 'a2', category: 'shopping', phonetic: 'boo-teek', exampleDA: 'Der er mange butikker på Strøget', exampleEN: 'There are many shops on Strøget', tags: ['shopping'], emoji: '🛍️' },
+  { id: 'a2-shop-002', danish: 'Strøget', english: 'Strøget (main shopping street)', level: 'a2', category: 'shopping', phonetic: 'stroh-et', exampleDA: 'Strøget er Europas længste gågade', exampleEN: 'Strøget is Europe\'s longest pedestrian street', tags: ['copenhagen', 'shopping'], emoji: '🛒', cultural: 'Strøget in Copenhagen is one of Europe\'s longest pedestrian shopping streets — 1.1km!' },
+  { id: 'a2-shop-003', danish: 'krone', english: 'krone (Danish currency)', level: 'a2', category: 'shopping', phonetic: 'kroh-neh', exampleDA: 'Det koster hundrede kroner', exampleEN: 'It costs one hundred kroner', tags: ['money'], emoji: '💰', cultural: 'Denmark kept the krone (DKK) and did not adopt the euro' },
+  { id: 'a2-shop-004', danish: 'kvittering', english: 'receipt', level: 'a2', category: 'shopping', phonetic: 'kvee-teh-ring', exampleDA: 'Kan jeg få en kvittering?', exampleEN: 'Can I have a receipt?', tags: ['shopping'], emoji: '🧾' },
+  { id: 'a2-shop-005', danish: 'rabat', english: 'discount', level: 'a2', category: 'shopping', phonetic: 'rah-bat', exampleDA: 'Er der rabat på dette?', exampleEN: 'Is there a discount on this?', tags: ['shopping'], emoji: '🏷️' },
+  { id: 'a2-shop-006', danish: 'prøverum', english: 'fitting room', level: 'a2', category: 'shopping', phonetic: 'proo-veh-room', exampleDA: 'Hvor er prøverummet?', exampleEN: 'Where is the fitting room?', tags: ['shopping', 'clothing'], emoji: '👗' },
+  { id: 'a2-shop-007', danish: 'størrelse', english: 'size', level: 'a2', category: 'shopping', phonetic: 'stor-el-seh', exampleDA: 'Hvad er din størrelse?', exampleEN: 'What is your size?', tags: ['shopping', 'clothing'], emoji: '📏' },
+  { id: 'a2-shop-008', danish: 'for dyrt', english: 'too expensive', level: 'a2', category: 'shopping', phonetic: 'for dyrt', exampleDA: 'Det er for dyrt for mig', exampleEN: 'That is too expensive for me', tags: ['shopping', 'price'], emoji: '💸' },
+  { id: 'a2-shop-009', danish: 'billig', english: 'cheap / inexpensive', level: 'a2', category: 'shopping', phonetic: 'bil-ee', exampleDA: 'Det er meget billigt!', exampleEN: 'That is very cheap!', tags: ['shopping', 'price'], emoji: '✅' },
+  { id: 'a2-shop-010', danish: 'torv', english: 'market square', level: 'a2', category: 'shopping', phonetic: 'torv', exampleDA: 'Nytorv og Gammel Torv er i centrum', exampleEN: 'Nytorv and Gammel Torv are in the city centre', tags: ['shopping', 'copenhagen'], emoji: '🏛️', cultural: 'Copenhagen\'s historic squares — Nytorv (New Square) and Gammel Torv (Old Square)' },
+];

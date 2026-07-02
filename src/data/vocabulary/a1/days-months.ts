@@ -1,0 +1,26 @@
+import { VocabWord } from '@/types';
+
+export const daysMonthsWords: VocabWord[] = [
+  { id: 'a1-dm-001', danish: 'mandag', english: 'Monday', level: 'a1', category: 'days-months', phonetic: 'man-da', exampleDA: 'Mandag er den første hverdag', exampleEN: 'Monday is the first weekday', tags: ['days'], emoji: '📅' },
+  { id: 'a1-dm-002', danish: 'tirsdag', english: 'Tuesday', level: 'a1', category: 'days-months', phonetic: 'tees-da', exampleDA: 'Vi mødes tirsdag', exampleEN: 'We meet on Tuesday', tags: ['days'], emoji: '📅' },
+  { id: 'a1-dm-003', danish: 'onsdag', english: 'Wednesday', level: 'a1', category: 'days-months', phonetic: 'ons-da', exampleDA: 'Onsdag er midt på ugen', exampleEN: 'Wednesday is mid-week', tags: ['days'], emoji: '📅' },
+  { id: 'a1-dm-004', danish: 'torsdag', english: 'Thursday', level: 'a1', category: 'days-months', phonetic: 'tors-da', exampleDA: 'Torsdag aften er hyggelig', exampleEN: 'Thursday evening is cosy', tags: ['days'], emoji: '📅' },
+  { id: 'a1-dm-005', danish: 'fredag', english: 'Friday', level: 'a1', category: 'days-months', phonetic: 'freh-da', exampleDA: 'Fredag er den bedste dag!', exampleEN: 'Friday is the best day!', tags: ['days'], emoji: '🎉' },
+  { id: 'a1-dm-006', danish: 'lørdag', english: 'Saturday', level: 'a1', category: 'days-months', phonetic: 'lor-da', exampleDA: 'Om lørdagen er der marked', exampleEN: 'On Saturday there is a market', tags: ['days'], emoji: '🛍️' },
+  { id: 'a1-dm-007', danish: 'søndag', english: 'Sunday', level: 'a1', category: 'days-months', phonetic: 'son-da', exampleDA: 'Søndagen er hviledag', exampleEN: 'Sunday is a rest day', tags: ['days'], emoji: '☀️' },
+  { id: 'a1-dm-008', danish: 'januar', english: 'January', level: 'a1', category: 'days-months', phonetic: 'ya-noo-ar', exampleDA: 'Januar er kold i Danmark', exampleEN: 'January is cold in Denmark', tags: ['months'], emoji: '❄️' },
+  { id: 'a1-dm-009', danish: 'februar', english: 'February', level: 'a1', category: 'days-months', phonetic: 'feb-roo-ar', exampleDA: 'Februar er den korteste måned', exampleEN: 'February is the shortest month', tags: ['months'], emoji: '💕' },
+  { id: 'a1-dm-010', danish: 'marts', english: 'March', level: 'a1', category: 'days-months', phonetic: 'mats', exampleDA: 'Foråret begynder i marts', exampleEN: 'Spring begins in March', tags: ['months'], emoji: '🌱' },
+  { id: 'a1-dm-011', danish: 'april', english: 'April', level: 'a1', category: 'days-months', phonetic: 'ah-pril', exampleDA: 'April, april, din dumme sild!', exampleEN: 'April Fools\' (literally "you silly herring")!', tags: ['months'], emoji: '🌧️', cultural: '"April, april din dumme sild" is the Danish April Fools\' Day saying!' },
+  { id: 'a1-dm-012', danish: 'maj', english: 'May', level: 'a1', category: 'days-months', phonetic: 'my', exampleDA: 'Maj er en smuk måned', exampleEN: 'May is a beautiful month', tags: ['months'], emoji: '🌸' },
+  { id: 'a1-dm-013', danish: 'juni', english: 'June', level: 'a1', category: 'days-months', phonetic: 'yoo-nee', exampleDA: 'Roskilde Festival er i juni', exampleEN: 'Roskilde Festival is in June', tags: ['months'], emoji: '🎸', cultural: 'Roskilde Festival — one of Europe\'s biggest music festivals!' },
+  { id: 'a1-dm-014', danish: 'juli', english: 'July', level: 'a1', category: 'days-months', phonetic: 'yoo-lee', exampleDA: 'Juli er den varmeste måned', exampleEN: 'July is the warmest month', tags: ['months'], emoji: '☀️' },
+  { id: 'a1-dm-015', danish: 'august', english: 'August', level: 'a1', category: 'days-months', phonetic: 'ow-goost', exampleDA: 'August er slut på sommeren', exampleEN: 'August is the end of summer', tags: ['months'], emoji: '🌻' },
+  { id: 'a1-dm-016', danish: 'september', english: 'September', level: 'a1', category: 'days-months', phonetic: 'sep-tem-ber', exampleDA: 'September bringer efteråret', exampleEN: 'September brings autumn', tags: ['months'], emoji: '🍂' },
+  { id: 'a1-dm-017', danish: 'oktober', english: 'October', level: 'a1', category: 'days-months', phonetic: 'ok-toh-ber', exampleDA: 'Oktober er smuk med farverige blade', exampleEN: 'October is beautiful with colourful leaves', tags: ['months'], emoji: '🍁' },
+  { id: 'a1-dm-018', danish: 'november', english: 'November', level: 'a1', category: 'days-months', phonetic: 'noh-vem-ber', exampleDA: 'November er mørkt og koldt', exampleEN: 'November is dark and cold', tags: ['months'], emoji: '🌧️' },
+  { id: 'a1-dm-019', danish: 'december', english: 'December', level: 'a1', category: 'days-months', phonetic: 'deh-sem-ber', exampleDA: 'Julen fejres i december', exampleEN: 'Christmas is celebrated in December', tags: ['months'], emoji: '🎄' },
+  { id: 'a1-dm-020', danish: 'i dag', english: 'today', level: 'a1', category: 'days-months', phonetic: 'ee da', exampleDA: 'Hvad er der i dag?', exampleEN: 'What is there today?', tags: ['time'], emoji: '📆' },
+  { id: 'a1-dm-021', danish: 'i morgen', english: 'tomorrow', level: 'a1', category: 'days-months', phonetic: 'ee morn', exampleDA: 'Vi ses i morgen', exampleEN: 'See you tomorrow', tags: ['time'], emoji: '➡️' },
+  { id: 'a1-dm-022', danish: 'i går', english: 'yesterday', level: 'a1', category: 'days-months', phonetic: 'ee gor', exampleDA: 'Det skete i går', exampleEN: 'It happened yesterday', tags: ['time'], emoji: '⬅️' },
+];

@@ -1,0 +1,16 @@
+import { VocabWord } from '@/types';
+
+export const travelPhraseWords: VocabWord[] = [
+  { id: 'a2-tr-001', danish: 'En billet til...', english: 'One ticket to...', level: 'a2', category: 'travel-phrases', phonetic: 'en bil-et til', exampleDA: 'En billet til Roskilde, tak', exampleEN: 'One ticket to Roskilde, please', tags: ['transport', 'phrase'], emoji: '🎫' },
+  { id: 'a2-tr-002', danish: 'Hvornår afgår toget?', english: 'When does the train depart?', level: 'a2', category: 'travel-phrases', phonetic: 'vor-nor av-gor tow-et', exampleDA: 'Hvornår afgår toget til Roskilde?', exampleEN: 'When does the train to Roskilde depart?', tags: ['transport', 'question'], emoji: '🚆' },
+  { id: 'a2-tr-003', danish: 'tog', english: 'train', level: 'a2', category: 'travel-phrases', phonetic: 'tow', exampleDA: 'Toget til Odense tager en time', exampleEN: 'The train to Odense takes one hour', tags: ['transport'], emoji: '🚆' },
+  { id: 'a2-tr-004', danish: 'bus', english: 'bus', level: 'a2', category: 'travel-phrases', phonetic: 'boos', exampleDA: 'Bus nummer 5A kører til Rådhuspladsen', exampleEN: 'Bus number 5A goes to City Hall Square', tags: ['transport'], emoji: '🚌' },
+  { id: 'a2-tr-005', danish: 'fly', english: 'flight / airplane', level: 'a2', category: 'travel-phrases', phonetic: 'floo', exampleDA: 'Flyet lander på Kastrup', exampleEN: 'The flight lands at Kastrup (CPH airport)', tags: ['transport', 'air'], emoji: '✈️' },
+  { id: 'a2-tr-006', danish: 'hotel', english: 'hotel', level: 'a2', category: 'travel-phrases', phonetic: 'hoh-tel', exampleDA: 'Hotellet er tæt på Nyhavn', exampleEN: 'The hotel is close to Nyhavn', tags: ['accommodation'], emoji: '🏨' },
+  { id: 'a2-tr-007', danish: 'Jeg er fortabt', english: 'I am lost', level: 'a2', category: 'travel-phrases', phonetic: 'yi air for-tabt', exampleDA: 'Hjælp, jeg er fortabt i byen!', exampleEN: 'Help, I am lost in the city!', tags: ['phrase', 'emergency'], emoji: '🗺️' },
+  { id: 'a2-tr-008', danish: 'til venstre', english: 'to the left', level: 'a2', category: 'travel-phrases', phonetic: 'til ven-streh', exampleDA: 'Drej til venstre ved broen', exampleEN: 'Turn left at the bridge', tags: ['navigation', 'direction'], emoji: '⬅️' },
+  { id: 'a2-tr-009', danish: 'til højre', english: 'to the right', level: 'a2', category: 'travel-phrases', phonetic: 'til hoy-reh', exampleDA: 'Tag til højre ved krydset', exampleEN: 'Turn right at the intersection', tags: ['navigation', 'direction'], emoji: '➡️' },
+  { id: 'a2-tr-010', danish: 'ligeud', english: 'straight ahead', level: 'a2', category: 'travel-phrases', phonetic: 'lee-oo', exampleDA: 'Gå ligeud forbi kirken', exampleEN: 'Go straight ahead past the church', tags: ['navigation', 'direction'], emoji: '⬆️' },
+  { id: 'a2-tr-011', danish: 'lufthavn', english: 'airport', level: 'a2', category: 'travel-phrases', phonetic: 'looft-hown', exampleDA: 'Kastrup lufthavn er Skandinaviens travleste', exampleEN: 'Kastrup airport is Scandinavia\'s busiest', tags: ['transport', 'air'], emoji: '✈️' },
+  { id: 'a2-tr-012', danish: 'rejse', english: 'journey / travel', level: 'a2', category: 'travel-phrases', phonetic: 'ry-seh', exampleDA: 'God rejse!', exampleEN: 'Have a good journey!', tags: ['phrase'], emoji: '🧳' },
+];
